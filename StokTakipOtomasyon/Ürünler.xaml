@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="StokTakipOtomasyon.Ürünler"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StokTakipOtomasyon"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"  
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+             >
+
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top" Margin="5">
+            <ToolBar  >
+                <Button x:Name="btnEkle"  ToolTip="Ürün Ekle"  Padding="4"   >
+                    <materialDesign:PackIcon Height="30" Width="30" Kind="PlusBox" />
+                </Button>
+                <Separator/>
+                <Button x:Name="btnSil"  ToolTip="Ürün Sil"  Padding="4"     >
+                    <materialDesign:PackIcon Height="30" Width="30" Kind="Delete" />
+                </Button>
+                <Separator/>
+                <Button x:Name="btnGuncelle"   ToolTip="Ürün Güncelle" Padding="4"      >
+                    <materialDesign:PackIcon Kind="Update" Height="30" Width="30" />
+                </Button>
+                <Separator/>
+
+                <Button x:Name="btnAra"  ToolTip="Ürün Ara"  Padding="4"   >
+                    <materialDesign:PackIcon Height="30" Width="30" Kind="Search" />
+                </Button>
+                <Separator/>
+                <Button x:Name="btnTemizle"  ToolTip="Text Kutularını Temizle" Padding="4"  >
+                    <materialDesign:PackIcon Kind="Eraser" Height="30" Width="30" />
+                </Button>
+                <Separator/>
+
+                <Button x:Name="btnYazdir"  ToolTip="Ürün Listesini Yazdır" Padding="4"    >
+                    <materialDesign:PackIcon Kind="Printer" Height="30" Width="30"/>
+                </Button>
+                <Separator/>
+
+            </ToolBar>
+        </ToolBarTray>
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <GroupBox   Grid.Row="0" Grid.Column="0"
+                    Header="Ürün Özellikleri"
+                    Margin="5,5,171,5" Grid.ColumnSpan="2"
+                    >
+                <StackPanel  Margin="3"  >
+
+
+
+                    <Label Margin="0 0 0 0" >Ürün Id</Label>
+                    <TextBox  x:Name="txtÜrünId" Cursor="Arrow" Margin="5" />
+                    <Label Content="Ürün Adı " Margin="0 5 0 0"  />
+                    <TextBox  x:Name="txtÜrünAdi" Margin="5"  />
+                    <Label Content="Ürün Adedi" Margin="0 10 0 0"   />
+                    <ComboBox Name="cbÜrünAdedi" Padding="2" Margin="2" />
+
+                </StackPanel>
+            </GroupBox>
+
+
+
+            <DataGrid x:Name="dtGridDers" d:ItemsSource="{d:SampleData ItemCount=5}"  VerticalAlignment="Top"
+                   IsReadOnly="True" 
+                  AutoGenerateColumns="False" Margin="7,298,242,0" Grid.RowSpan="2" 
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ürün Id" 
+                                    Binding="{Binding Id}"  />
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+            
+
+
+        </Grid>
+
+    </DockPanel>
+
+
+</UserControl>
